@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Linux学习笔记一</title>
+    <url>/posts/d27d9f8c.html</url>
+    <content><![CDATA[<p><strong>day1 2020-01-14</strong></p>
+<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><pre><code>操作系统的作用：用来管理硬件设备</code></pre>
+<h1 id="Linux内核及发行版"><a href="#Linux内核及发行版" class="headerlink" title="Linux内核及发行版"></a>Linux内核及发行版</h1><pre><code>内核（kernel）</code></pre>
+<h1 id="Linux系统（Ubuntu为例）"><a href="#Linux系统（Ubuntu为例）" class="headerlink" title="Linux系统（Ubuntu为例）"></a>Linux系统（Ubuntu为例）</h1><pre><code>* 没有盘符的概念，只有一个根目录 /，所有文件都在它下面
+* 各用户在 home目录下各自有一个文件夹
+#Linux主要目录
+    · /：根目录，一般根目录下只存放目录，在Linux下有且只有一个目录，所有的东西都是从这里开始
+    · /bin、/usr/bin：可执行二进制文件的目录，如常用的命令ls、tar、mv、cat等
+    · /dev：存放Linux系统下的设备文件，访问该目录下某个文件，相当于访问某个设备
+    · /etc：系统配置文件存放的目录，不建议在此目录下执行可执行文件
+    · /home：系统默认的用户家目录，新增用户账号时，用户家目录都存放在此目录下</code></pre>
+<h1 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h1><pre><code>* Linux发行版中的命令大概有200多个，但是常用的命令之哟10多个而已
+ * 小技巧： 
+    ctrl + shift + = 放大终端字体
+    ctrl + - 缩小字体
+    自动补全 Tab：在敲出 文件/目录/命令 的前几个字母之后按下Tab键如果没有歧义会自动补全
+    Ctrl + C：另起一行新命令，不执行当前命令行的命令
+*常用Linux命令的基本使用
+序号        命令                对应英文                    作用
+1        ls                list                    查看当前文件夹下的内容
+2        pwd                print work directory    查看当前所在文件夹
+3        cd[目录名]        change directory        切换文件夹
+4        touch[文件名]    touch                    如果文件不存在，新建文件
+5        mkdir[目录名]    make directory            创建目录
+6        rm[文件名]        remove                    删除指定的文件名
+7        clear            clear                    清屏
+
+* 终端命令格式
+    command [-options] [parameter]
+    * command：命令名，相应功能的英文单词或单词的缩写
+    * [-options]：选项，可用来对命令进行控制，也可以省略
+    * [parameter]：传给命令的参数，可以是 零个 一个 或者 多个
+    * []：代表可选
+
+*查询命令帮助的信息
+    1. --help
+        格式:command --help
+    2. man(manual的缩写，是Linux提供的一个手册，包含了绝大部分的命令、函数的使用说明)
+        * 格式:man command
+        * 使用man时的操作键：
+             空格键 显示手册页的下一屏
+             Enter键 一次滚动手册页的一行
+             b 回滚一屏
+             f    前滚一屏
+             q 退出
+             /word 搜索word字符串</code></pre>
+<p><strong>day2 2020-01-15</strong></p>
+<h1 id="ls-命令"><a href="#ls-命令" class="headerlink" title="ls 命令"></a>ls 命令</h1><pre><code>* Linux下文件和目录的特点
+    * Linux文件或者目录名称最长可以有256个字符
+    * 以.开头的文件为隐藏文件，需要用-a参数才能显示
+    * .代表当前目录
+    * ..代表上一级目录
+* ls常用选项
+    * -a：显示指定目录下所有子目录与文件，包括隐藏文件
+    * -l：以列表方式显示文件的详细信息
+    * -h：配合-l以人性化的方式显示文件大小
+* ls通配符的使用
+    * *：代表任意个数个字符
+    * ?：代表任意一个字符，至少一个
+    * []：代表可以匹配字符组中的任意一个
+    * [abc]：匹配a、b、c中的任意一个
+    * [a-f]：匹配从a到f范围内的任意一个字符</code></pre>
+<h1 id="cd-命令"><a href="#cd-命令" class="headerlink" title="cd 命令"></a>cd 命令</h1><pre><code>注意：Linux所有的目录和文件名都是大小写敏感的
+* cd常用命令
+    * cd  ：切换到当前用户的主目录（/home/用户目录）
+    * cd ~：切换到当前用户的主目录（/home/用户目录）
+    * cd .：保持在当前目录不变
+    * cd ..：切换到上级目录
+    * cd -：可以在最近两次工作目录之间来回切换
+* 相对路径和绝对路径
+    * 相对路径：在输入路径时，最前面不是/或者~，表示相对当前目录所在的目录位置
+    * 绝对路径：在输入路径时，最前面是/或者~，表示从根目录/家目录开始的具体目录位置</code></pre>
+<h1 id="touch-命令"><a href="#touch-命令" class="headerlink" title="touch 命令"></a>touch 命令</h1><pre><code>*作用：创建文件或修改文件时间
+    *如果文件不存在，可以创建一个空白文件
+    *如果文件存在，可以修改文件的末次修改日期    </code></pre>
+<h1 id="mkdir-命令"><a href="#mkdir-命令" class="headerlink" title="mkdir 命令"></a>mkdir 命令</h1><pre><code>*作用：创建一个新的目录，新建目录的名称不能与当前目录中已有的目录或文件同名
+*选项：
+    -p：递归创建目录（创建多级目录）</code></pre>
+<h1 id="rm-命令"><a href="#rm-命令" class="headerlink" title="rm 命令"></a>rm 命令</h1><pre><code>*作用：删除文件或目录，删除后不能恢复
+*选项：
+    -f：强制删除，忽略不存在的文件，无需提示
+    -r：递归地删除目录下地内容，删除文件夹时必须要加此参数</code></pre>
+<p><strong>day3 2020-01-16</strong></p>
+<h1 id="拷贝和移动文件"><a href="#拷贝和移动文件" class="headerlink" title="拷贝和移动文件"></a>拷贝和移动文件</h1><pre><code>序号        命令                    对应英文        作用
+01        tree[目录名]            tree        以树状图列出文件目录结构
+02        cp 源文件 目标文件    copy        复制文件或目录
+03        mv 源文件 目标文件    move        移动文件或者目录/文件或者目录重名</code></pre>
+<h1 id="tree-命令"><a href="#tree-命令" class="headerlink" title="tree 命令"></a>tree 命令</h1><pre><code>*作用：可以以树状图列出文件目录结构
+*选项：
+    -d：只显示目录</code></pre>
+<h1 id="cp-命令"><a href="#cp-命令" class="headerlink" title="cp 命令"></a>cp 命令</h1><pre><code>*作用：将给出的文件或目录复制到另一个文件或目录中
+*选项：
+    -f：已经存在的目标文件直接覆盖，不会提示
+    -i：覆盖文件前提示
+    -r：若给出的源文件是目录文件，则cp将递归复制该目录下的所有子目录和文件，目标文件必须为一个目录名</code></pre>
+<h1 id="mv-命令"><a href="#mv-命令" class="headerlink" title="mv 命令"></a>mv 命令</h1><pre><code>*作用：用来移动文件或目录，也可以给文件或目录重命名
+*选项：
+    -i：覆盖文件前提示</code></pre>
+<h1 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h1><pre><code>序号        命令                    对应英文        作用    
+01        cat 文件名            concatenate    查看文件内容、创建文件、文件合并、追加文件内容等功能
+02        more 文件名            more        分屏显示文件内容
+03        grep 搜索文本、文件名    grep        搜索文本文件内容</code></pre>
+<h1 id="cat-命令"><a href="#cat-命令" class="headerlink" title="cat 命令"></a>cat 命令</h1><pre><code>* 用来查看文件内容、创建文件、文件合并、追加文件内容等功能
+* cat 会一次显示所有内容，适合查看内容较少的文本文件
+* 选项：
+    * -b：对非空输出行编号
+    * -n：对输出的所有行编号
+    * Linux中还有一个nl的命令和cat -b 的效果等价</code></pre>
+<h1 id="grep-命令"><a href="#grep-命令" class="headerlink" title="grep 命令"></a>grep 命令</h1><pre><code>    * Linux系统中grep命令是一种强大的文本搜索工具
+    * grep允许对文本文件进行模式查找，所谓模式查找又被称为正则表达式
+    选项          含义
+    -n            显示匹配行及行号
+    -v            显示不包含匹配文本的所有行（相当于求反）
+    -i            忽略大小写
+*常用的两种模式查找
+参数          含义
+^a            行首，搜寻以a开头的行
+ke$           行尾，搜寻以ke结束的行</code></pre>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux学习笔记二</title>
+    <url>/posts/e9fdb125.html</url>
+    <content><![CDATA[<h1 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h1><pre><code> *echo 命令
+   @ echo会在终端中显示参数指定的文字，通常会和重定向联合使用
+ *重定向&gt;和&gt;&gt;
+    @ Linux允许将命令执行结果重定向到一个文件
+    @ 将本应显示在终端上的内容输出/追加 到指定文件中
+    @ &gt;表示输出，会覆盖文件原有的内容
+    @ &gt;&gt;表示追加，会将内容追加到已有文件的末尾
+ *管道
+    @ Linux允许将 一个命令的输出 可以通过管道作为 另一个命令的输入
+    @ 可以理解为现实生活中的管子，管子的一头塞东西进去，另一头取出来，这里 |的左右分为两端，左端塞东西（写），右端取东西（读）
+    @ 常用的管道命令有：
+        *more：分屏显示内容
+        *grep：在命令执行结果的基础上查询指定的文本</code></pre>
+<h1 id="远程管理常用命令"><a href="#远程管理常用命令" class="headerlink" title="远程管理常用命令"></a>远程管理常用命令</h1><pre><code>* 关机/重启
+    序号    命令                对于英文    作用
+    01      shutdown 选项 时间  shutdown    关机/重新启动
+*shutdown
+    shutdown命令可以安全关闭或者重新启动系统
+    选项    含义
+    -r      重新启动
+    提示：
+        *不指定选项和参数，默认表示1分钟之后关闭电脑
+        *远程维护服务器时，最好不要关闭系统，而应重启系统
+    常用命令实例：
+        #重新启动操作系统，其中 now 表示现在
+        $ shutdown -r now
+        #立刻关机，其中 now 表示现在
+        $ shutdown now
+        #系统在今天的20:25会关机
+        $shutdown 20:25
+        #系统再过十分钟后自动关闭
+        $shutdown +10
+        #取消之前指定的关机计划
+        $shutdown -c
+*查看或配置网卡信息
+    序号    命令        对应英文                        作用
+    01      ifconfig    configure a network interface   查看/配置计算机当前的网卡配置信息
+    02      ping ip地址 ping                            检测到目标IP地址的链接是否正常
+*网卡和IP地址
+    *网卡
+        网卡是一个专门负责网络通讯的硬件设备
+        IP地址是设置在网卡上的地址信息
+        @我们可以把电脑比作电话，网卡相当于SIM卡，IP地址相当于电话号码
+    *IP地址
+        每台联网的电脑上都有IP地址，是保证电脑之间正常通讯的重要设置
+        @注意：每台电脑的IP地址不能相同，否则会出现IP地址冲突，并且没有办法正常通讯
+    *ifconfig
+        ifconfig可以查看/配置当前计算机当前的网卡配置信息
+        #查看网卡配置信息
+        $ifconfig
+        #查看网卡对应的IP地址
+        $ifconfig | grep inet
+
+        *提示：一台计算机中有可能会有一个物理网卡和多个虚拟网卡，在Linux中物理网卡的名字通常以ensXX表示
+        *127.0.0.1被称为本地回环/环回地址，一般用来测试本机网卡是否正常
+    *ping
+        #检测到目标主机是否连接正常
+        $ping IP地址
+        #检测本地网卡工作正常
+        $ping 127.0.0.1
+
+       @ ping一般用于检测当前计算机到目标计算机之间的网络是否通畅，数值越大，速度越慢
+       @ ping的工作原理与潜水艇的声纳相似，ping这个命令就是取自声纳的声音
+       @ 网络管理员之间也常将ping用作动词----ping一下计算机X，看他是否开着
+       @ 原理：网络上的机器都有唯一确定IP地址，我们给目标IP地址发送一个数据包，对方就要返回一个数据包，根据返回的数据包以及时间，我们可以确定目标主机的存在
+       @ 提示：在Linux中，想要终止一个终端程序的执行，绝大多数都可以使用CTRL + C</code></pre>
+<h1 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h1><pre><code>*远程登陆和复制文件
+    序号    命令                                              对应英文        作用
+    01      ssh 用户名@ip                                     secure shell   关机/重新启动
+    02      scp 用户名@ip:文件名或路径 用户名@ip:文件名或路径   secure copy    远程复制文件
+*SSH(Secure Shell)客户端的简单使用
+    ssh [-p port] user@remote
+*scp(掌握)
+    命令格式：
+    scp -P port 01.txt user@remote:Desktop/01.txt
+    scp -P port user@remote:Desktop/01.txt 01.txt
+    #加上-r 选项可以传送文件夹
+    scp -r demo user@remote:Desktop
+*FTP传输文件（Windows下）
+    FileZilla软件</code></pre>
+<h1 id="用户权限"><a href="#用户权限" class="headerlink" title="用户权限"></a>用户权限</h1><pre><code>*用户权限相关命令
+    对文件/目录的权限包括：
+    序号    权限  英文    缩写    数字代号
+    01      读   read    r        4
+    02      写   write   w        2
+    03      执行 excute  x        1
+   ls -l 命令结果显示解析：
+  -rw-rw-r-- 1 user user    43  5月  9  05:56  01.py
+  drwxrwxr-x 2 user user  4096  5月  4  14:49  aaa
+  ls -l 可以查看文件夹下文件的详细信息，从左到右依次是：
+  @ 权限，第一个字符如果是d表示目录
+  @ 硬链接数，通俗的讲，就是有多少种方式，可以访问到当前目录/文件
+  @ 拥有者，家目录下 文件/目录 的拥有者通常都是当前用户
+  @ 组，在Linux中，很多时候，会出现组名和用户名相同的情况
+  @ 大小  
+  @ 时间
+  @ 名称
+
+                    目录        拥有者权限      组权限      其他用户权限
+  文件权限示例        -          r  w  -        r  w  -     r  -  -
+  目录权限示例        d          r  w  x        r  w  x     r  -  x
+  chmod简单使用：
+    chmod 可以修改 用户/组 对 文件/目录 的权限
+    命令格式如下：
+    chmod +(-)(r)(w)(x) 文件名|目录名
+*sudo
+  *su(substitute user)，表示使用另一个用户的身份
+  *sudo 命令用来以其他身份来执行命令，预设的身份为root
+  *用户使用sudo时，必须先输入密码，之后有5分钟的有效期限，超过期限则必须重新输入密码
+  *若其未经授权的用户企图使用sudo，则会发出警告邮件给管理员</code></pre>
+<h1 id="组管理"><a href="#组管理" class="headerlink" title="组管理"></a>组管理</h1><pre><code>*组管理 终端命令
+  提示：创建组/删除组 的终端命令都需要通过sudo执行
+  序号    命令                      作用
+  01      groupadd 组名             添加组
+  02      groupdel 组名             删除组
+  03      cat /etc/group            确认组信息
+  04      chgrp -R 组名 文件/目录名  递归修改文件/目录的所属组
+  提示：
+      组信息保存在 /etc/group 文件中
+      /etc 目录是专门用来保存 系统配置信息 的目录</code></pre>
+<h1 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h1><pre><code>* 用户管理 终端命令
+  提示：创建用户/删除用户/修改其他用户密码 的终端名都需要通过sudo执行
+  *创建用户/设置密码/删除用户
+  序号    命令                          作用              说明
+  01      useradd -m -g 组 新建用户名   添加新用户          1.-m自动建立用户家目录2.-g指定用户所在的组，否则会建立一个和用户同名的组
+  02      passwd 用户名              设置用户密码        如果是普通用户，直接用passwd可以修改自己的账户密码
+  03      userdel -r 用户名            删除用户           -r选项会自动删除用户家目录
+  04      cat /etc/passwd|group 用户名  确认用户信息     新建用户后，用户信息会保存在/etc/passwd 文件中
+
+*查看用户信息
+  序号    命令          作用
+  01      id [用户名]    查看用户UID和GID信息
+  02      who            查看当前所有登录的用户列表
+  03      whoami          查看当前登陆用户的账户名
+
+*usermod
+    usermod可以用来设置用户的主组/附加组和登陆shell，命令格式如下：
+    主组：通常在新建用户时指定，在etc/passwd的第4列GID对应的组
+    附加组：在etc/group中最后一列表示改组的用户列表，用于指定用户的附加权限
+    #修改用户的主组：
+    $usermod -g 组 用户名
+    #修改用户的附加组
+    $usermod -G 组 用户名
+    #修改用户登陆shell
+    usermod -s /bin/bash
+    注意：默认使用useradd添加的用户时没有权限使用sudo以root身份执行命令的，可以使用以下命令，将用户添加到sudo附加组中：
+    usermod -G sudo 用户名
+* which
+    which命令可以查看执行命令所在的位置，例如which ls
+
+*切换用户
+  su 用户名（切换用户）
+  su -用户名（切换到用户家目录）
+
+*修改文件权限
+  #修改文件 目录的拥有者
+  chown 用户名 文件名|目录名
+  #递归修改文件|目录的组
+  chgrp -R 组名 文件名|目录名
+  #递归修改文件权限
+  chmod -R 755 文件名|目录名</code></pre>
+<h1 id="系统信息相关命令"><a href="#系统信息相关命令" class="headerlink" title="系统信息相关命令"></a>系统信息相关命令</h1><pre><code>*时间和日期
+   date 作用：查看系统时间
+   cal  作用：calendar查看日历，-y选项可以查看一年的日历
+*磁盘信息
+  df -h 作用：disk free 显示磁盘剩余空间
+  du -h [目录名] 作用：disk usage 显示目录下的文件大小
+*进程信息
+  ps aux 作用：process status 查看进程的详细状况
+  top 作用：动态显示运行中的进程并且排序
+  kill [-9] 进程代号 作用：终止指定代号的进程，-9表示强行终止
+  选项：
+  a 含义：显示终端上的所有进程，包括其他用户的进程
+  u 含义：显示进程的详细状态
+  x 含义：显示没有控制终端的进程</code></pre>
+<h1 id="其他命令-1"><a href="#其他命令-1" class="headerlink" title="其他命令"></a>其他命令</h1><pre><code>*查找文件
+find [路径] -name &quot;.py&quot; 作用：查找指定路径下扩展名是.py的文件，包括子目录
+例如：find -name &quot;*1*&quot;
+     find -name &quot;*.txt&quot;
+*软链接（相当于快捷方式）
+ln -s 被链接的源文件 链接文件 作用：建立文件的软链接，用通俗的方式讲类似于Windows下的快捷方式
+注意：没有-s选项建立的是一个硬链接文件。源文件要使用绝对路径，不能使用相对路径，这样可以方便移动链接文件后，仍然能够正常使用
+*打包压缩
+#打包文件
+tar -cvf 打包文件.tar 被打包的文件/路径
+#解包文件
+tar -xvf 打包文件.tar
+选项：
+c 含义：在生成档案文件，创建打包文件
+x 含义：解开档案文件
+v 含义：列出归档解档的详细过程，显示进度
+f 含义：指定档案文件名称，f后面一定是.tar文件，所以必须放选项最后
+*压缩和解压缩
+用gzip压缩tar打包后的文件，其扩展名一般用xxx.tar.gz
+在tar命令中有一个选项-z可以调用gzip，从而可以方便的实现压缩和解压缩的功能
+#压缩文件
+tar -zcvf 打包文件.tar.gz 被压缩的文件/路径
+#解压缩文件
+tar -zxvf 打包文件.tar.gz
+#解压缩到指定路径
+tar -zxvf 打包文件.tar.gz -C 目标路径
+*bzip2压缩
+ #压缩文件
+tar -jcvf 打包文件.tar.bz2 被压缩的文件/路径
+#解压缩文件
+tar -jxvf 打包文件.tar.bz2
+#解压缩到指定路径</code></pre>
+<h1 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h1><pre><code>*通过apt安装/卸载软件
+  apt是Advanced Packaging Tool，是Linux下的一款安装包管理工具
+  可以在终端中方便的安装/卸载/更新软件包
+#安装软件
+$ sudo apt install 软件包
+#卸载软件
+$ sudo apt remove 软件名
+#更新已安装的包
+$ sudo apt upgrade</code></pre>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringBoot中使用Ueditor</title>
+    <url>/posts/aaf29486.html</url>
+    <content><![CDATA[<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p><a href="http://ueditor.baidu.com/website/download.html">百度Ueditor</a></p>
+<p><img src="http://qiniu.flysong.cn/images/20205271843469.png"></p>
+<p>下载完成后解压，得到 utf8-jsp 文件夹，将其重命名为 ueditor，再将其复制到springboot 项目中</p>
+<p><img src="http://qiniu.flysong.cn/images/202052718455480.png"></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p><strong>1.在项目中添加以下依赖：</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- ueditor--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-codec<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-codec<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.9<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-fileupload<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-fileupload<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-io<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-io<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.json<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>json<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>20160810<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 跨域上传文件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.sun.jersey<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jersey-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.18.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.sun.jersey<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jersey-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.18.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后重点关注这些文件</p>
+<p><img src="http://qiniu.flysong.cn/images/202052718495554.png"></p>
+<blockquote>
+<p>config.json：上传功能的主要配置项</p>
+<p>ueditor.config.js：完整配置项</p>
+</blockquote>
+<p><strong>2.在页面中引用（此处用的是Thymeleaf）：</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/static/ueditor/ueditor.config.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/static/ueditor/ueditor.all.min.js&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/static/ueditor/lang/zh-cn/zh-cn.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>3.实例化编辑器：</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">name</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;editor&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/plain&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width:100%;height:800px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="comment">/*实例化编辑器 */</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> um = UE.getEditor(<span class="string">&#x27;editor&#x27;</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：此时上传功能不正常，可以在开发者工具中看见“后端配置项不正确，上传功能无法使用”的情况</p>
+<p><strong>问题缘由：</strong></p>
+<p><img src="http://qiniu.flysong.cn/images/202052718595013.png"></p>
+<p>请求过来了，它会走 controller.jsp，但是 springboot 默认是不支持 jsp 的，然而这个 jsp 它是指向 config.json 的，打开 config.json，第一个就是图片上传的相关配置：</p>
+<p><img src="http://qiniu.flysong.cn/images/20205271905831.png"></p>
+<p>所以就是 springboot 它无法访问 controller.jsp，也就无法读到 config.json 里的相关配置，所以报错。</p>
+<p><strong>解决办法：</strong></p>
+<blockquote>
+<p>思路：既然 springboot 无法通过 jsp 访问到 config.json，那就不走 jsp，直接让它获得 config.json 里的配置。</p>
+</blockquote>
+<p><strong>1.新建一个Controller，内容如下：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 上传配置：即不走config.json，模拟config.json里的内容，解决后端配置项不正确，无法上传的问题</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/ueditor/config&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">uploadConfig</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String s = <span class="string">&quot;&#123;\n&quot;</span> +</span><br><span class="line">            <span class="string">&quot;            \&quot;imageActionName\&quot;: \&quot;uploadimage\&quot;,\n&quot;</span> +</span><br><span class="line">            <span class="string">&quot;                \&quot;imageFieldName\&quot;: \&quot;upfile\&quot;, \n&quot;</span> +</span><br><span class="line">            <span class="string">&quot;                \&quot;imageMaxSize\&quot;: 2048000, \n&quot;</span> +</span><br><span class="line">            <span class="string">&quot;                \&quot;imageAllowFiles\&quot;: [\&quot;.png\&quot;, \&quot;.jpg\&quot;, \&quot;.jpeg\&quot;, \&quot;.gif\&quot;, \&quot;.bmp\&quot;], \n&quot;</span> +</span><br><span class="line">            <span class="string">&quot;                \&quot;imageCompressEnable\&quot;: true, \n&quot;</span> +</span><br><span class="line">            <span class="string">&quot;                \&quot;imageCompressBorder\&quot;: 1600, \n&quot;</span> +</span><br><span class="line">            <span class="string">&quot;                \&quot;imageInsertAlign\&quot;: \&quot;none\&quot;, \n&quot;</span> +</span><br><span class="line">            <span class="string">&quot;                \&quot;imageUrlPrefix\&quot;: \&quot;\&quot;,\n&quot;</span> +</span><br><span class="line">            <span class="string">&quot;                \&quot;imagePathFormat\&quot;: \&quot;/upload/images/&#123;yyyy&#125;&#123;mm&#125;&#123;dd&#125;/&#123;filename&#125;\&quot; &#125;&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.修改 ueditor.config.js 里的 serverUrl 为上面定义的 url</strong></p>
+<p><img src="http://qiniu.flysong.cn/images/2020527194785.png"></p>
+<p><strong>3.因为SpringBoot项目是以jar打包的，我希望将文件上传到项目目录中，因此我新建一个SSM项目（fileUploadServer）作为文件上传服务器，即实现跨服务器文件上传</strong></p>
+<p>创建文件服务器流程：</p>
+<p>新建一个maven项目，选择web骨架创建：</p>
+<p><img src="http://qiniu.flysong.cn/images/202052719103111.png"></p>
+<p>项目创建好后，不需要做任何配置，只需配置tomcat启动即可</p>
+<p><img src="http://qiniu.flysong.cn/images/2020527198283.png"></p>
+<p>启动文件服务器，在浏览器访问：</p>
+<p><img src="http://qiniu.flysong.cn/images/20205271913014.png"></p>
+<p><strong>4.接下来在配置编辑器的页面配置一下上传：</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">// 手动指定上传文件调用的接口（不同文件类型不同接口）</span><br><span class="line">UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;</span><br><span class="line">UE.Editor.prototype.getActionUrl = function(action) &#123;</span><br><span class="line">    // 这里很重要，很重要，很重要，要和配置中的imageActionName值一样</span><br><span class="line">    if(action == &#x27;uploadimage&#x27;)&#123;</span><br><span class="line">        // 这里调用后端我们写的图片上传接口</span><br><span class="line">        return &#x27;/ueditor/upload&#x27;;</span><br><span class="line">    &#125;else if(action == &#x27;uploadfile&#x27;)&#123;</span><br><span class="line">        return &#x27;/ueditor/upload&#x27;;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return this._bkGetActionUrl.call(this, action);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>即：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="comment">/*实例化编辑器 */</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> um = UE.getEditor(<span class="string">&#x27;editor&#x27;</span>);</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 手动指定上传文件调用的接口（不同文件类型不同接口）</span></span></span><br><span class="line">UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;</span><br><span class="line"><span class="javascript">UE.Editor.prototype.getActionUrl = <span class="function"><span class="keyword">function</span>(<span class="params">action</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 这里很重要，很重要，很重要，要和配置中的imageActionName值一样</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span>(action == <span class="string">&quot;uploadimage&quot;</span>)&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 这里调用后端我们写的图片上传接口</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> <span class="string">&quot;/ueditor/upload&quot;</span>;</span></span><br><span class="line"><span class="javascript">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(action == <span class="string">&quot;uploadfile&quot;</span>)&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> <span class="string">&quot;/ueditor/upload&quot;</span>;</span></span><br><span class="line"><span class="javascript">    &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> <span class="built_in">this</span>._bkGetActionUrl.call(<span class="built_in">this</span>, action);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>5.后端定义图片上传接口（使用ueditor自带的上传是不现实的）</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> com.sky.blog.admin.commons.BaseController;</span><br><span class="line"><span class="keyword">import</span> com.sun.jersey.api.client.Client;</span><br><span class="line"><span class="keyword">import</span> com.sun.jersey.api.client.WebResource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PostMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.multipart.MultipartFile;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.Calendar;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UploadController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@PostMapping(&amp;quot;/ueditor/upload&amp;quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="keyword">public</span> Map&amp;lt;String,String&amp;gt; uploadImage(MultipartFile upfile, HttpServletRequest request)&#123;</span><br><span class="line">        String originalName = upfile.getOriginalFilename();</span><br><span class="line">        String fileSuffix = originalName.substring(originalName.lastIndexOf(&amp;quot;.&amp;quot;));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//生成新文件名</span></span><br><span class="line">        Calendar now = Calendar.getInstance();</span><br><span class="line">        <span class="keyword">int</span> year = now.get(Calendar.YEAR);</span><br><span class="line">        <span class="keyword">int</span> month = now.get(Calendar.MONTH) + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> day = now.get(Calendar.DAY_OF_MONTH);</span><br><span class="line">        <span class="keyword">int</span> hour = now.get(Calendar.HOUR_OF_DAY);</span><br><span class="line">        <span class="keyword">int</span> minute = now.get(Calendar.MINUTE);</span><br><span class="line">        <span class="keyword">int</span> second = now.get(Calendar.SECOND);</span><br><span class="line">        Random random = <span class="keyword">new</span> Random();</span><br><span class="line">        String newName = &amp;quot;&amp;quot;+year+month+day+hour+minute+second+random.nextInt(<span class="number">100</span>) + fileSuffix;</span><br><span class="line">         <span class="comment">//文件存放路径</span></span><br><span class="line">        String path = &amp;quothttp:<span class="comment">//localhost/upload/images/&amp;quot; //这里就是我们刚刚创建的文件服务器 </span></span><br><span class="line">        <span class="comment">// 创建客户端的对象</span></span><br><span class="line">        Client client = Client.create();</span><br><span class="line">        <span class="comment">//和图片服务器进行连接</span></span><br><span class="line">        String url = path + newName;</span><br><span class="line">        WebResource webResource = client.resource(url);</span><br><span class="line">        <span class="comment">// 上传文件</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            webResource.put(upfile.getBytes());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Map&amp;lt;String,String&amp;gt; result = <span class="keyword">new</span> HashMap&amp;lt;&amp;gt;();</span><br><span class="line">        result.put(&amp;quot;state&amp;quot;,&amp;quot;SUCCESS&amp;quot;);</span><br><span class="line">        result.put(&amp;quot;url&amp;quot;,url);</span><br><span class="line">        result.put(&amp;quot;title&amp;quot;,newName);</span><br><span class="line">        result.put(&amp;quot;original&amp;quot;,newName);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来编辑器就可以上传图片啦，还有一些上传视频，音乐的功能也可以类似的编写后台接口来实现。</p>
+<p><strong>存在的问题：</strong></p>
+<p>这样实现的跨服务器文件上传是不安全的，因为文件服务器没有任何权限限制，只要知道服务器地址即可无限制地上传文件，因此这个问题有待解决，后续我将花时间继续研究。</p>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>springboot</tag>
+        <tag>Ueditor</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue项目打包后除了第一个页面其余全部404</title>
+    <url>/posts/62aa5ba1.html</url>
+    <content><![CDATA[<h1 id="问题起源："><a href="#问题起源：" class="headerlink" title="问题起源："></a>问题起源：</h1><p>这几天心血来潮，决定将博客改版，用Vue+SpringBoot把博客改成前后端分离的。没有系统学过Vue，就是看了一些视频直接写的。写了一天多的Vue前端，结果在打包部署的时候遇到了<strong>问题</strong>：打包以后部署在nginx上，首页是可以正常显示的，但是点其他页面无法显示，全部是显示404NOT FOUND。搞了一下午一晚上也没搞定，最后终于在第二天早上看了一篇文章搞定了。</p>
+<h1 id="解决过程："><a href="#解决过程：" class="headerlink" title="解决过程："></a>解决过程：</h1><p>我看了一下network里的请求，发现remoteAddress都是前端服务器地址，百度了一些就以为是跨域的问题，结果配置了代理，没用。</p>
+<p>看了好多文章说一些什么vue.config.js的配置问题，什么config文件夹下的index.js配置问题，结果我这项目目录下压根它也没有这些配置文件啊，对这些配置文件也是一点不了解，头秃。。。</p>
+<p>来到官网：<a href="https://www.sogou.com/link?url=hedJjaC291NA4zbHKlAAkwr4sXjsZK93w9VE6AbE6s2t5pUc3zy0dg">https://www.sogou.com/link?url=hedJjaC291NA4zbHKlAAkwr4sXjsZK93w9VE6AbE6s2t5pUc3zy0dg</a>..</p>
+<p>看了文档才逐渐了解一些配置的属性。</p>
+<h4 id="vue-config-js"><a href="#vue-config-js" class="headerlink" title="vue.config.js"></a>vue.config.js</h4><p><code>vue.config.js</code> 是一个可选的配置文件，如果项目的 (和 <code>package.json</code> 同级的) 根目录中存在这个文件，那么它会被 <code>@vue/cli-service</code> 自动加载。你也可以使用 <code>package.json</code> 中的 <code>vue</code> 字段，但是注意这种写法需要你严格遵照 JSON 的格式来写。</p>
+<p>这个文件应该导出一个包含了选项的对象：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// vue.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// 选项...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="baseUrl"><a href="#baseUrl" class="headerlink" title="baseUrl"></a>baseUrl</h4><p>从 Vue CLI 3.3 起已弃用，请使用<a href="https://cli.vuejs.org/zh/config/#publicPath"><code>publicPath</code></a>。</p>
+<h4 id="publicPath"><a href="#publicPath" class="headerlink" title="publicPath"></a>publicPath</h4><ul>
+<li><p>Type: <code>string</code></p>
+</li>
+<li><p>Default: <code>&#39;/&#39;</code></p>
+<p>部署应用包时的基本 URL。用法和 webpack 本身的 <code>output.publicPath</code> 一致，但是 Vue CLI 在一些其他地方也需要用到这个值，所以**请始终使用 <code>publicPath</code> 而不要直接修改 webpack 的 <code>output.publicPath</code>**。</p>
+<p>默认情况下，Vue CLI 会假设你的应用是被部署在一个域名的根路径上，例如 <code>https://www.my-app.com/</code>。如果应用被部署在一个子路径上，你就需要用这个选项指定这个子路径。例如，如果你的应用被部署在 <code>https://www.my-app.com/my-app/</code>，则设置 <code>publicPath</code> 为 <code>/my-app/</code>。</p>
+<p>这个值也可以被设置为空字符串 (<code>&#39;&#39;</code>) 或是相对路径 (<code>&#39;./&#39;</code>)，这样所有的资源都会被链接为相对路径，这样打出来的包可以被部署在任意路径，也可以用在类似 Cordova hybrid 应用的文件系统中。</p>
+<p>相对 publicPath 的限制</p>
+<p>相对路径的 <code>publicPath</code> 有一些使用上的限制。在以下情况下，应当避免使用相对 <code>publicPath</code>:</p>
+<ul>
+<li>当使用基于 HTML5 <code>history.pushState</code> 的路由时；</li>
+<li>当使用 <code>pages</code> 选项构建多页面应用时。</li>
+</ul>
+<p>这个值在开发环境下同样生效。如果你想把开发服务器架设在根路径，你可以使用一个条件式的值：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  publicPath: process.env.NODE_ENV === <span class="string">&#x27;production&#x27;</span></span><br><span class="line">    ? <span class="string">&#x27;/production-sub-path/&#x27;</span></span><br><span class="line">    : <span class="string">&#x27;/&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="问题解决："><a href="#问题解决：" class="headerlink" title="问题解决："></a>问题解决：</h1><p>最后我是在项目根目录下新建vue.config.js，在文件里面加入以下内容：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    publicPath: <span class="string">&quot;/&quot;</span>, <span class="comment">//部署应用包时的基本 URL</span></span><br><span class="line">    outputDir: <span class="string">&quot;dist&quot;</span>, <span class="comment">//打包目录</span></span><br><span class="line">    indexPath: <span class="string">&quot;index.html&quot;</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>网上很多说要把 publicPath: “/“,改成 publicPath: “./“,但我试了很多次都不行，还是要写成  “/“</p>
+<p>并且在nginx目录的conf/nginx.conf文件中作如下配置：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">            root   html;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">			try_files $uri $uri/ /index.html;</span><br><span class="line">	//在里面加了一句：try_files $uri $uri/ /index.html;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>最终将打包好的dist文件夹里的css、fonts、js、favicon.ico、index.html扔到nginx的html文件夹下，即可正常访问项目。</p>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>春庭雪</title>
+    <url>/posts/e7a91616.html</url>
+    <content><![CDATA[<p>庭中梨花谢又一年</p>
+<p>立清宵 月华洒空阶</p>
+<p>梦里笙箫奏旧乐</p>
+<p>梦醒泪染胭脂面</p>
+<p>小重山 念一遍又一遍</p>
+<p>闻 更漏咽 频教前尘辞长夜</p>
+<p>久无眠 深坐对宫檐</p>
+<p>多情最是春庭雪</p>
+<p>年年落满离人苑</p>
+<p>薛涛笺 上言若如初见</p>
+<p>这一世</p>
+<p>太漫长却止步咫尺天涯间</p>
+<p>谁仍记 那梨花若雪时节</p>
+<p>我心匪石不可转</p>
+<p>我心匪席不可卷</p>
+<p>空凝眸 情字深浅无解</p>
+<p><a href="https://c.y.qq.com/base/fcgi-bin/u?__=s6AZVhy">春庭雪</a></p>
+]]></content>
+      <categories>
+        <category>生活随笔</category>
+      </categories>
+      <tags>
+        <tag>人间词话</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>树莓派4B环境搭建及初步设置</title>
+    <url>/posts/29a5b123.html</url>
+    <content><![CDATA[<h1 id="1-将开启SSH功能的镜像写入SD卡"><a href="#1-将开启SSH功能的镜像写入SD卡" class="headerlink" title="1.将开启SSH功能的镜像写入SD卡"></a>1.将开启SSH功能的镜像写入SD卡</h1><pre><code>1.用SDFormatter格式化SD卡
+2.用Win32DiskImager将下载好的镜像写入SD卡</code></pre>
+<h1 id="2-设置开机自动连接WIFI"><a href="#2-设置开机自动连接WIFI" class="headerlink" title="2.设置开机自动连接WIFI"></a>2.设置开机自动连接WIFI</h1><pre><code>1.用读卡器读取SD卡，在boot分区下新建名为 wpa_supplicant.conf 的文件
+2.在文件内写入以下内容:
+country=CN
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+network=&#123;
+    ssid=&quot;WiFi-A&quot;
+    psk=&quot;12345678&quot;
+    key_mgmt=WPA-PSK
+    priority=1
+&#125;
+
+network=&#123;
+    ssid=&quot;WiFi-B&quot;
+    psk=&quot;12345678&quot;
+    key_mgmt=WPA-PSK
+    priority=2
+&#125;
+注：两个不同的wifi优先级设置相同可能会导致不能自动连接WiFi
+
+树莓派开机自动连接WiFi后进入路由器配置界面查看树莓派IP，通过IP即可通过ssh连接树莓派。（此方法不再需要网线）</code></pre>
+<h1 id="3-解决乱码问题"><a href="#3-解决乱码问题" class="headerlink" title="3.解决乱码问题"></a>3.解决乱码问题</h1><pre><code>1.进入树莓派系统
+2.输入 sudo raspi-config
+3.语言设置为en_US.UTF-8
+4.cd /etc/default/
+5.sudo nano locale
+6.将locale内键值对的值全部修改为en_US.UTF-8
+7.sudo reboot</code></pre>
+<h1 id="4-设置开机自动启动VNC"><a href="#4-设置开机自动启动VNC" class="headerlink" title="4.设置开机自动启动VNC"></a>4.设置开机自动启动VNC</h1><pre><code>1.进入树莓派
+2.sudo rapsi-config
+3.开启vnc
+4.sudo reboot
+5.sudo nano /etc/init.d/vncserver
+6.复制以下内容并保存：
+        #!/bin/sh
+        ### BEGIN INIT INFO
+        # Provides:          vncserver
+        # Required-Start:    $local_fs
+        # Required-Stop:     $local_fs
+        # Default-Start:     2 3 4 5
+        # Default-Stop:      0 1 6
+        # Short-Description: Start/stop vncserver
+        ### END INIT INFO
+
+        # More details see:
+        # http://www.penguintutor.com/linux/vnc
+
+        ### Customize this entry
+        # Set the USER variable to the name of the user to start vncserver under
+        export USER=&#39;pi&#39;
+        ### End customization required
+
+        eval cd ~$USER
+
+        case &quot;$1&quot; in
+          start)
+            # 启动命令行。此处自定义分辨率、控制台号码或其它参数。
+            su $USER -c &#39;/usr/bin/vncserver -depth 16 -geometry 1024x768 :1&#39;
+            echo &quot;Starting VNC server for $USER &quot;
+            ;;
+          stop)
+            # 终止命令行。此处控制台号码与启动一致。
+            su $USER -c &#39;/usr/bin/vncserver -kill :1&#39;
+            echo &quot;vncserver stopped&quot;
+            ;;
+          *)
+            echo &quot;Usage: /etc/init.d/vncserver &#123;start|stop&#125;&quot;
+            exit 1
+            ;;
+        esac
+        exit 0
+
+7.sudo chmod 755 /etc/init.d/vncserver
+8.添加开机启动项：sudo update-rc.d vncserver defaults
+9.sudo reboot</code></pre>
+<h1 id="安装opencv"><a href="#安装opencv" class="headerlink" title="安装opencv"></a>安装opencv</h1><pre><code>参照：https://docs.opencv.org/4.2.0/d7/d9f/tutorial_linux_install.html
+1.sudo apt-get update
+
+2.sudo apt-get install build-essential
+3.sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+4.sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+5.下载opencv源码，并通过FileZilla传输给树莓派
+6.解压opencv源码至家目录下
+7.cd ~
+8.cd opencv
+9.mkdir build
+10.cd build
+11.cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local ..
+12.make -j7 # runs 7 jobs in parallel（如果失败则重复命令）
+13.sudo make install（如果失败则重复命令）
+14.opencv安装完成，测试：
+        1.python3
+        2.import cv2
+        3.cv2.__version__
+        4.若输出opencv版本号则安装成功</code></pre>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>树莓派</tag>
+      </tags>
+  </entry>
+</search>
