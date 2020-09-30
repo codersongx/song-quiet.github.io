@@ -154,135 +154,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux学习笔记一</title>
-    <url>/posts/d27d9f8c.html</url>
-    <content><![CDATA[<p><strong>day1 2020-01-14</strong></p>
-<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><pre><code>操作系统的作用：用来管理硬件设备</code></pre>
-<h1 id="Linux内核及发行版"><a href="#Linux内核及发行版" class="headerlink" title="Linux内核及发行版"></a>Linux内核及发行版</h1><pre><code>内核（kernel）</code></pre>
-<h1 id="Linux系统（Ubuntu为例）"><a href="#Linux系统（Ubuntu为例）" class="headerlink" title="Linux系统（Ubuntu为例）"></a>Linux系统（Ubuntu为例）</h1><pre><code>* 没有盘符的概念，只有一个根目录 /，所有文件都在它下面
-* 各用户在 home目录下各自有一个文件夹
-#Linux主要目录
-    · /：根目录，一般根目录下只存放目录，在Linux下有且只有一个目录，所有的东西都是从这里开始
-    · /bin、/usr/bin：可执行二进制文件的目录，如常用的命令ls、tar、mv、cat等
-    · /dev：存放Linux系统下的设备文件，访问该目录下某个文件，相当于访问某个设备
-    · /etc：系统配置文件存放的目录，不建议在此目录下执行可执行文件
-    · /home：系统默认的用户家目录，新增用户账号时，用户家目录都存放在此目录下</code></pre>
-<h1 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h1><pre><code>* Linux发行版中的命令大概有200多个，但是常用的命令之哟10多个而已
- * 小技巧： 
-    ctrl + shift + = 放大终端字体
-    ctrl + - 缩小字体
-    自动补全 Tab：在敲出 文件/目录/命令 的前几个字母之后按下Tab键如果没有歧义会自动补全
-    Ctrl + C：另起一行新命令，不执行当前命令行的命令
-*常用Linux命令的基本使用
-序号        命令                对应英文                    作用
-1        ls                list                    查看当前文件夹下的内容
-2        pwd                print work directory    查看当前所在文件夹
-3        cd[目录名]        change directory        切换文件夹
-4        touch[文件名]    touch                    如果文件不存在，新建文件
-5        mkdir[目录名]    make directory            创建目录
-6        rm[文件名]        remove                    删除指定的文件名
-7        clear            clear                    清屏
-
-* 终端命令格式
-    command [-options] [parameter]
-    * command：命令名，相应功能的英文单词或单词的缩写
-    * [-options]：选项，可用来对命令进行控制，也可以省略
-    * [parameter]：传给命令的参数，可以是 零个 一个 或者 多个
-    * []：代表可选
-
-*查询命令帮助的信息
-    1. --help
-        格式:command --help
-    2. man(manual的缩写，是Linux提供的一个手册，包含了绝大部分的命令、函数的使用说明)
-        * 格式:man command
-        * 使用man时的操作键：
-             空格键 显示手册页的下一屏
-             Enter键 一次滚动手册页的一行
-             b 回滚一屏
-             f    前滚一屏
-             q 退出
-             /word 搜索word字符串</code></pre>
-<p><strong>day2 2020-01-15</strong></p>
-<h1 id="ls-命令"><a href="#ls-命令" class="headerlink" title="ls 命令"></a>ls 命令</h1><pre><code>* Linux下文件和目录的特点
-    * Linux文件或者目录名称最长可以有256个字符
-    * 以.开头的文件为隐藏文件，需要用-a参数才能显示
-    * .代表当前目录
-    * ..代表上一级目录
-* ls常用选项
-    * -a：显示指定目录下所有子目录与文件，包括隐藏文件
-    * -l：以列表方式显示文件的详细信息
-    * -h：配合-l以人性化的方式显示文件大小
-* ls通配符的使用
-    * *：代表任意个数个字符
-    * ?：代表任意一个字符，至少一个
-    * []：代表可以匹配字符组中的任意一个
-    * [abc]：匹配a、b、c中的任意一个
-    * [a-f]：匹配从a到f范围内的任意一个字符</code></pre>
-<h1 id="cd-命令"><a href="#cd-命令" class="headerlink" title="cd 命令"></a>cd 命令</h1><pre><code>注意：Linux所有的目录和文件名都是大小写敏感的
-* cd常用命令
-    * cd  ：切换到当前用户的主目录（/home/用户目录）
-    * cd ~：切换到当前用户的主目录（/home/用户目录）
-    * cd .：保持在当前目录不变
-    * cd ..：切换到上级目录
-    * cd -：可以在最近两次工作目录之间来回切换
-* 相对路径和绝对路径
-    * 相对路径：在输入路径时，最前面不是/或者~，表示相对当前目录所在的目录位置
-    * 绝对路径：在输入路径时，最前面是/或者~，表示从根目录/家目录开始的具体目录位置</code></pre>
-<h1 id="touch-命令"><a href="#touch-命令" class="headerlink" title="touch 命令"></a>touch 命令</h1><pre><code>*作用：创建文件或修改文件时间
-    *如果文件不存在，可以创建一个空白文件
-    *如果文件存在，可以修改文件的末次修改日期    </code></pre>
-<h1 id="mkdir-命令"><a href="#mkdir-命令" class="headerlink" title="mkdir 命令"></a>mkdir 命令</h1><pre><code>*作用：创建一个新的目录，新建目录的名称不能与当前目录中已有的目录或文件同名
-*选项：
-    -p：递归创建目录（创建多级目录）</code></pre>
-<h1 id="rm-命令"><a href="#rm-命令" class="headerlink" title="rm 命令"></a>rm 命令</h1><pre><code>*作用：删除文件或目录，删除后不能恢复
-*选项：
-    -f：强制删除，忽略不存在的文件，无需提示
-    -r：递归地删除目录下地内容，删除文件夹时必须要加此参数</code></pre>
-<p><strong>day3 2020-01-16</strong></p>
-<h1 id="拷贝和移动文件"><a href="#拷贝和移动文件" class="headerlink" title="拷贝和移动文件"></a>拷贝和移动文件</h1><pre><code>序号        命令                    对应英文        作用
-01        tree[目录名]            tree        以树状图列出文件目录结构
-02        cp 源文件 目标文件    copy        复制文件或目录
-03        mv 源文件 目标文件    move        移动文件或者目录/文件或者目录重名</code></pre>
-<h1 id="tree-命令"><a href="#tree-命令" class="headerlink" title="tree 命令"></a>tree 命令</h1><pre><code>*作用：可以以树状图列出文件目录结构
-*选项：
-    -d：只显示目录</code></pre>
-<h1 id="cp-命令"><a href="#cp-命令" class="headerlink" title="cp 命令"></a>cp 命令</h1><pre><code>*作用：将给出的文件或目录复制到另一个文件或目录中
-*选项：
-    -f：已经存在的目标文件直接覆盖，不会提示
-    -i：覆盖文件前提示
-    -r：若给出的源文件是目录文件，则cp将递归复制该目录下的所有子目录和文件，目标文件必须为一个目录名</code></pre>
-<h1 id="mv-命令"><a href="#mv-命令" class="headerlink" title="mv 命令"></a>mv 命令</h1><pre><code>*作用：用来移动文件或目录，也可以给文件或目录重命名
-*选项：
-    -i：覆盖文件前提示</code></pre>
-<h1 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h1><pre><code>序号        命令                    对应英文        作用    
-01        cat 文件名            concatenate    查看文件内容、创建文件、文件合并、追加文件内容等功能
-02        more 文件名            more        分屏显示文件内容
-03        grep 搜索文本、文件名    grep        搜索文本文件内容</code></pre>
-<h1 id="cat-命令"><a href="#cat-命令" class="headerlink" title="cat 命令"></a>cat 命令</h1><pre><code>* 用来查看文件内容、创建文件、文件合并、追加文件内容等功能
-* cat 会一次显示所有内容，适合查看内容较少的文本文件
-* 选项：
-    * -b：对非空输出行编号
-    * -n：对输出的所有行编号
-    * Linux中还有一个nl的命令和cat -b 的效果等价</code></pre>
-<h1 id="grep-命令"><a href="#grep-命令" class="headerlink" title="grep 命令"></a>grep 命令</h1><pre><code>    * Linux系统中grep命令是一种强大的文本搜索工具
-    * grep允许对文本文件进行模式查找，所谓模式查找又被称为正则表达式
-    选项          含义
-    -n            显示匹配行及行号
-    -v            显示不包含匹配文本的所有行（相当于求反）
-    -i            忽略大小写
-*常用的两种模式查找
-参数          含义
-^a            行首，搜寻以a开头的行
-ke$           行尾，搜寻以ke结束的行</code></pre>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux学习笔记二</title>
     <url>/posts/e9fdb125.html</url>
     <content><![CDATA[<h1 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h1><pre><code> *echo 命令
@@ -576,6 +447,81 @@ $ sudo apt upgrade</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>Vue项目打包后除了第一个页面其余全部404</title>
+    <url>/posts/62aa5ba1.html</url>
+    <content><![CDATA[<h1 id="问题起源："><a href="#问题起源：" class="headerlink" title="问题起源："></a>问题起源：</h1><p>这几天心血来潮，决定将博客改版，用Vue+SpringBoot把博客改成前后端分离的。没有系统学过Vue，就是看了一些视频直接写的。写了一天多的Vue前端，结果在打包部署的时候遇到了<strong>问题</strong>：打包以后部署在nginx上，首页是可以正常显示的，但是点其他页面无法显示，全部是显示404NOT FOUND。搞了一下午一晚上也没搞定，最后终于在第二天早上看了一篇文章搞定了。</p>
+<h1 id="解决过程："><a href="#解决过程：" class="headerlink" title="解决过程："></a>解决过程：</h1><p>我看了一下network里的请求，发现remoteAddress都是前端服务器地址，百度了一些就以为是跨域的问题，结果配置了代理，没用。</p>
+<p>看了好多文章说一些什么vue.config.js的配置问题，什么config文件夹下的index.js配置问题，结果我这项目目录下压根它也没有这些配置文件啊，对这些配置文件也是一点不了解，头秃。。。</p>
+<p>来到官网：<a href="https://www.sogou.com/link?url=hedJjaC291NA4zbHKlAAkwr4sXjsZK93w9VE6AbE6s2t5pUc3zy0dg">https://www.sogou.com/link?url=hedJjaC291NA4zbHKlAAkwr4sXjsZK93w9VE6AbE6s2t5pUc3zy0dg</a>..</p>
+<p>看了文档才逐渐了解一些配置的属性。</p>
+<h4 id="vue-config-js"><a href="#vue-config-js" class="headerlink" title="vue.config.js"></a>vue.config.js</h4><p><code>vue.config.js</code> 是一个可选的配置文件，如果项目的 (和 <code>package.json</code> 同级的) 根目录中存在这个文件，那么它会被 <code>@vue/cli-service</code> 自动加载。你也可以使用 <code>package.json</code> 中的 <code>vue</code> 字段，但是注意这种写法需要你严格遵照 JSON 的格式来写。</p>
+<p>这个文件应该导出一个包含了选项的对象：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// vue.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// 选项...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="baseUrl"><a href="#baseUrl" class="headerlink" title="baseUrl"></a>baseUrl</h4><p>从 Vue CLI 3.3 起已弃用，请使用<a href="https://cli.vuejs.org/zh/config/#publicPath"><code>publicPath</code></a>。</p>
+<h4 id="publicPath"><a href="#publicPath" class="headerlink" title="publicPath"></a>publicPath</h4><ul>
+<li><p>Type: <code>string</code></p>
+</li>
+<li><p>Default: <code>&#39;/&#39;</code></p>
+<p>部署应用包时的基本 URL。用法和 webpack 本身的 <code>output.publicPath</code> 一致，但是 Vue CLI 在一些其他地方也需要用到这个值，所以**请始终使用 <code>publicPath</code> 而不要直接修改 webpack 的 <code>output.publicPath</code>**。</p>
+<p>默认情况下，Vue CLI 会假设你的应用是被部署在一个域名的根路径上，例如 <code>https://www.my-app.com/</code>。如果应用被部署在一个子路径上，你就需要用这个选项指定这个子路径。例如，如果你的应用被部署在 <code>https://www.my-app.com/my-app/</code>，则设置 <code>publicPath</code> 为 <code>/my-app/</code>。</p>
+<p>这个值也可以被设置为空字符串 (<code>&#39;&#39;</code>) 或是相对路径 (<code>&#39;./&#39;</code>)，这样所有的资源都会被链接为相对路径，这样打出来的包可以被部署在任意路径，也可以用在类似 Cordova hybrid 应用的文件系统中。</p>
+<p>相对 publicPath 的限制</p>
+<p>相对路径的 <code>publicPath</code> 有一些使用上的限制。在以下情况下，应当避免使用相对 <code>publicPath</code>:</p>
+<ul>
+<li>当使用基于 HTML5 <code>history.pushState</code> 的路由时；</li>
+<li>当使用 <code>pages</code> 选项构建多页面应用时。</li>
+</ul>
+<p>这个值在开发环境下同样生效。如果你想把开发服务器架设在根路径，你可以使用一个条件式的值：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  publicPath: process.env.NODE_ENV === <span class="string">&#x27;production&#x27;</span></span><br><span class="line">    ? <span class="string">&#x27;/production-sub-path/&#x27;</span></span><br><span class="line">    : <span class="string">&#x27;/&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="问题解决："><a href="#问题解决：" class="headerlink" title="问题解决："></a>问题解决：</h1><p>最后我是在项目根目录下新建vue.config.js，在文件里面加入以下内容：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    publicPath: <span class="string">&quot;/&quot;</span>, <span class="comment">//部署应用包时的基本 URL</span></span><br><span class="line">    outputDir: <span class="string">&quot;dist&quot;</span>, <span class="comment">//打包目录</span></span><br><span class="line">    indexPath: <span class="string">&quot;index.html&quot;</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>网上很多说要把 publicPath: “/“,改成 publicPath: “./“,但我试了很多次都不行，还是要写成  “/“</p>
+<p>并且在nginx目录的conf/nginx.conf文件中作如下配置：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">            root   html;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">			try_files $uri $uri/ /index.html;</span><br><span class="line">	//在里面加了一句：try_files $uri $uri/ /index.html;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>最终将打包好的dist文件夹里的css、fonts、js、favicon.ico、index.html扔到nginx的html文件夹下，即可正常访问项目。</p>
+]]></content>
+      <categories>
+        <category>技术分享</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>春庭雪</title>
+    <url>/posts/e7a91616.html</url>
+    <content><![CDATA[<p>庭中梨花谢又一年</p>
+<p>立清宵 月华洒空阶</p>
+<p>梦里笙箫奏旧乐</p>
+<p>梦醒泪染胭脂面</p>
+<p>小重山 念一遍又一遍</p>
+<p>闻 更漏咽 频教前尘辞长夜</p>
+<p>久无眠 深坐对宫檐</p>
+<p>多情最是春庭雪</p>
+<p>年年落满离人苑</p>
+<p>薛涛笺 上言若如初见</p>
+<p>这一世</p>
+<p>太漫长却止步咫尺天涯间</p>
+<p>谁仍记 那梨花若雪时节</p>
+<p>我心匪石不可转</p>
+<p>我心匪席不可卷</p>
+<p>空凝眸 情字深浅无解</p>
+<p><a href="https://c.y.qq.com/base/fcgi-bin/u?__=s6AZVhy">春庭雪</a></p>
+]]></content>
+      <categories>
+        <category>生活随笔</category>
+      </categories>
+      <tags>
+        <tag>人间词话</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>树莓派4B环境搭建及初步设置</title>
     <url>/posts/29a5b123.html</url>
     <content><![CDATA[<h1 id="1-将开启SSH功能的镜像写入SD卡"><a href="#1-将开启SSH功能的镜像写入SD卡" class="headerlink" title="1.将开启SSH功能的镜像写入SD卡"></a>1.将开启SSH功能的镜像写入SD卡</h1><pre><code>1.用SDFormatter格式化SD卡
@@ -684,78 +630,132 @@ network=&#123;
       </tags>
   </entry>
   <entry>
-    <title>Vue项目打包后除了第一个页面其余全部404</title>
-    <url>/posts/62aa5ba1.html</url>
-    <content><![CDATA[<h1 id="问题起源："><a href="#问题起源：" class="headerlink" title="问题起源："></a>问题起源：</h1><p>这几天心血来潮，决定将博客改版，用Vue+SpringBoot把博客改成前后端分离的。没有系统学过Vue，就是看了一些视频直接写的。写了一天多的Vue前端，结果在打包部署的时候遇到了<strong>问题</strong>：打包以后部署在nginx上，首页是可以正常显示的，但是点其他页面无法显示，全部是显示404NOT FOUND。搞了一下午一晚上也没搞定，最后终于在第二天早上看了一篇文章搞定了。</p>
-<h1 id="解决过程："><a href="#解决过程：" class="headerlink" title="解决过程："></a>解决过程：</h1><p>我看了一下network里的请求，发现remoteAddress都是前端服务器地址，百度了一些就以为是跨域的问题，结果配置了代理，没用。</p>
-<p>看了好多文章说一些什么vue.config.js的配置问题，什么config文件夹下的index.js配置问题，结果我这项目目录下压根它也没有这些配置文件啊，对这些配置文件也是一点不了解，头秃。。。</p>
-<p>来到官网：<a href="https://www.sogou.com/link?url=hedJjaC291NA4zbHKlAAkwr4sXjsZK93w9VE6AbE6s2t5pUc3zy0dg">https://www.sogou.com/link?url=hedJjaC291NA4zbHKlAAkwr4sXjsZK93w9VE6AbE6s2t5pUc3zy0dg</a>..</p>
-<p>看了文档才逐渐了解一些配置的属性。</p>
-<h4 id="vue-config-js"><a href="#vue-config-js" class="headerlink" title="vue.config.js"></a>vue.config.js</h4><p><code>vue.config.js</code> 是一个可选的配置文件，如果项目的 (和 <code>package.json</code> 同级的) 根目录中存在这个文件，那么它会被 <code>@vue/cli-service</code> 自动加载。你也可以使用 <code>package.json</code> 中的 <code>vue</code> 字段，但是注意这种写法需要你严格遵照 JSON 的格式来写。</p>
-<p>这个文件应该导出一个包含了选项的对象：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// vue.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// 选项...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>Linux学习笔记一</title>
+    <url>/posts/d27d9f8c.html</url>
+    <content><![CDATA[<p><strong>day1 2020-01-14</strong></p>
+<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><pre><code>操作系统的作用：用来管理硬件设备</code></pre>
+<h1 id="Linux内核及发行版"><a href="#Linux内核及发行版" class="headerlink" title="Linux内核及发行版"></a>Linux内核及发行版</h1><pre><code>内核（kernel）</code></pre>
+<h1 id="Linux系统（Ubuntu为例）"><a href="#Linux系统（Ubuntu为例）" class="headerlink" title="Linux系统（Ubuntu为例）"></a>Linux系统（Ubuntu为例）</h1><pre><code>* 没有盘符的概念，只有一个根目录 /，所有文件都在它下面
+* 各用户在 home目录下各自有一个文件夹
+#Linux主要目录
+    · /：根目录，一般根目录下只存放目录，在Linux下有且只有一个目录，所有的东西都是从这里开始
+    · /bin、/usr/bin：可执行二进制文件的目录，如常用的命令ls、tar、mv、cat等
+    · /dev：存放Linux系统下的设备文件，访问该目录下某个文件，相当于访问某个设备
+    · /etc：系统配置文件存放的目录，不建议在此目录下执行可执行文件
+    · /home：系统默认的用户家目录，新增用户账号时，用户家目录都存放在此目录下</code></pre>
+<h1 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h1><pre><code>* Linux发行版中的命令大概有200多个，但是常用的命令之哟10多个而已
+ * 小技巧： 
+    ctrl + shift + = 放大终端字体
+    ctrl + - 缩小字体
+    自动补全 Tab：在敲出 文件/目录/命令 的前几个字母之后按下Tab键如果没有歧义会自动补全
+    Ctrl + C：另起一行新命令，不执行当前命令行的命令
+*常用Linux命令的基本使用
+序号        命令                对应英文                    作用
+1        ls                list                    查看当前文件夹下的内容
+2        pwd                print work directory    查看当前所在文件夹
+3        cd[目录名]        change directory        切换文件夹
+4        touch[文件名]    touch                    如果文件不存在，新建文件
+5        mkdir[目录名]    make directory            创建目录
+6        rm[文件名]        remove                    删除指定的文件名
+7        clear            clear                    清屏
 
-<h4 id="baseUrl"><a href="#baseUrl" class="headerlink" title="baseUrl"></a>baseUrl</h4><p>从 Vue CLI 3.3 起已弃用，请使用<a href="https://cli.vuejs.org/zh/config/#publicPath"><code>publicPath</code></a>。</p>
-<h4 id="publicPath"><a href="#publicPath" class="headerlink" title="publicPath"></a>publicPath</h4><ul>
-<li><p>Type: <code>string</code></p>
-</li>
-<li><p>Default: <code>&#39;/&#39;</code></p>
-<p>部署应用包时的基本 URL。用法和 webpack 本身的 <code>output.publicPath</code> 一致，但是 Vue CLI 在一些其他地方也需要用到这个值，所以**请始终使用 <code>publicPath</code> 而不要直接修改 webpack 的 <code>output.publicPath</code>**。</p>
-<p>默认情况下，Vue CLI 会假设你的应用是被部署在一个域名的根路径上，例如 <code>https://www.my-app.com/</code>。如果应用被部署在一个子路径上，你就需要用这个选项指定这个子路径。例如，如果你的应用被部署在 <code>https://www.my-app.com/my-app/</code>，则设置 <code>publicPath</code> 为 <code>/my-app/</code>。</p>
-<p>这个值也可以被设置为空字符串 (<code>&#39;&#39;</code>) 或是相对路径 (<code>&#39;./&#39;</code>)，这样所有的资源都会被链接为相对路径，这样打出来的包可以被部署在任意路径，也可以用在类似 Cordova hybrid 应用的文件系统中。</p>
-<p>相对 publicPath 的限制</p>
-<p>相对路径的 <code>publicPath</code> 有一些使用上的限制。在以下情况下，应当避免使用相对 <code>publicPath</code>:</p>
-<ul>
-<li>当使用基于 HTML5 <code>history.pushState</code> 的路由时；</li>
-<li>当使用 <code>pages</code> 选项构建多页面应用时。</li>
-</ul>
-<p>这个值在开发环境下同样生效。如果你想把开发服务器架设在根路径，你可以使用一个条件式的值：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  publicPath: process.env.NODE_ENV === <span class="string">&#x27;production&#x27;</span></span><br><span class="line">    ? <span class="string">&#x27;/production-sub-path/&#x27;</span></span><br><span class="line">    : <span class="string">&#x27;/&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+* 终端命令格式
+    command [-options] [parameter]
+    * command：命令名，相应功能的英文单词或单词的缩写
+    * [-options]：选项，可用来对命令进行控制，也可以省略
+    * [parameter]：传给命令的参数，可以是 零个 一个 或者 多个
+    * []：代表可选
 
-</li>
-</ul>
-<h1 id="问题解决："><a href="#问题解决：" class="headerlink" title="问题解决："></a>问题解决：</h1><p>最后我是在项目根目录下新建vue.config.js，在文件里面加入以下内容：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    publicPath: <span class="string">&quot;/&quot;</span>, <span class="comment">//部署应用包时的基本 URL</span></span><br><span class="line">    outputDir: <span class="string">&quot;dist&quot;</span>, <span class="comment">//打包目录</span></span><br><span class="line">    indexPath: <span class="string">&quot;index.html&quot;</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>网上很多说要把 publicPath: “/“,改成 publicPath: “./“,但我试了很多次都不行，还是要写成  “/“</p>
-<p>并且在nginx目录的conf/nginx.conf文件中作如下配置：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">            root   html;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">			try_files $uri $uri/ /index.html;</span><br><span class="line">	//在里面加了一句：try_files $uri $uri/ /index.html;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-<p>最终将打包好的dist文件夹里的css、fonts、js、favicon.ico、index.html扔到nginx的html文件夹下，即可正常访问项目。</p>
+*查询命令帮助的信息
+    1. --help
+        格式:command --help
+    2. man(manual的缩写，是Linux提供的一个手册，包含了绝大部分的命令、函数的使用说明)
+        * 格式:man command
+        * 使用man时的操作键：
+             空格键 显示手册页的下一屏
+             Enter键 一次滚动手册页的一行
+             b 回滚一屏
+             f    前滚一屏
+             q 退出
+             /word 搜索word字符串</code></pre>
+<p><strong>day2 2020-01-15</strong></p>
+<h1 id="ls-命令"><a href="#ls-命令" class="headerlink" title="ls 命令"></a>ls 命令</h1><pre><code>* Linux下文件和目录的特点
+    * Linux文件或者目录名称最长可以有256个字符
+    * 以.开头的文件为隐藏文件，需要用-a参数才能显示
+    * .代表当前目录
+    * ..代表上一级目录
+* ls常用选项
+    * -a：显示指定目录下所有子目录与文件，包括隐藏文件
+    * -l：以列表方式显示文件的详细信息
+    * -h：配合-l以人性化的方式显示文件大小
+* ls通配符的使用
+    * *：代表任意个数个字符
+    * ?：代表任意一个字符，至少一个
+    * []：代表可以匹配字符组中的任意一个
+    * [abc]：匹配a、b、c中的任意一个
+    * [a-f]：匹配从a到f范围内的任意一个字符</code></pre>
+<h1 id="cd-命令"><a href="#cd-命令" class="headerlink" title="cd 命令"></a>cd 命令</h1><pre><code>注意：Linux所有的目录和文件名都是大小写敏感的
+* cd常用命令
+    * cd  ：切换到当前用户的主目录（/home/用户目录）
+    * cd ~：切换到当前用户的主目录（/home/用户目录）
+    * cd .：保持在当前目录不变
+    * cd ..：切换到上级目录
+    * cd -：可以在最近两次工作目录之间来回切换
+* 相对路径和绝对路径
+    * 相对路径：在输入路径时，最前面不是/或者~，表示相对当前目录所在的目录位置
+    * 绝对路径：在输入路径时，最前面是/或者~，表示从根目录/家目录开始的具体目录位置</code></pre>
+<h1 id="touch-命令"><a href="#touch-命令" class="headerlink" title="touch 命令"></a>touch 命令</h1><pre><code>*作用：创建文件或修改文件时间
+    *如果文件不存在，可以创建一个空白文件
+    *如果文件存在，可以修改文件的末次修改日期    </code></pre>
+<h1 id="mkdir-命令"><a href="#mkdir-命令" class="headerlink" title="mkdir 命令"></a>mkdir 命令</h1><pre><code>*作用：创建一个新的目录，新建目录的名称不能与当前目录中已有的目录或文件同名
+*选项：
+    -p：递归创建目录（创建多级目录）</code></pre>
+<h1 id="rm-命令"><a href="#rm-命令" class="headerlink" title="rm 命令"></a>rm 命令</h1><pre><code>*作用：删除文件或目录，删除后不能恢复
+*选项：
+    -f：强制删除，忽略不存在的文件，无需提示
+    -r：递归地删除目录下地内容，删除文件夹时必须要加此参数</code></pre>
+<p><strong>day3 2020-01-16</strong></p>
+<h1 id="拷贝和移动文件"><a href="#拷贝和移动文件" class="headerlink" title="拷贝和移动文件"></a>拷贝和移动文件</h1><pre><code>序号        命令                    对应英文        作用
+01        tree[目录名]            tree        以树状图列出文件目录结构
+02        cp 源文件 目标文件    copy        复制文件或目录
+03        mv 源文件 目标文件    move        移动文件或者目录/文件或者目录重名</code></pre>
+<h1 id="tree-命令"><a href="#tree-命令" class="headerlink" title="tree 命令"></a>tree 命令</h1><pre><code>*作用：可以以树状图列出文件目录结构
+*选项：
+    -d：只显示目录</code></pre>
+<h1 id="cp-命令"><a href="#cp-命令" class="headerlink" title="cp 命令"></a>cp 命令</h1><pre><code>*作用：将给出的文件或目录复制到另一个文件或目录中
+*选项：
+    -f：已经存在的目标文件直接覆盖，不会提示
+    -i：覆盖文件前提示
+    -r：若给出的源文件是目录文件，则cp将递归复制该目录下的所有子目录和文件，目标文件必须为一个目录名</code></pre>
+<h1 id="mv-命令"><a href="#mv-命令" class="headerlink" title="mv 命令"></a>mv 命令</h1><pre><code>*作用：用来移动文件或目录，也可以给文件或目录重命名
+*选项：
+    -i：覆盖文件前提示</code></pre>
+<h1 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h1><pre><code>序号        命令                    对应英文        作用    
+01        cat 文件名            concatenate    查看文件内容、创建文件、文件合并、追加文件内容等功能
+02        more 文件名            more        分屏显示文件内容
+03        grep 搜索文本、文件名    grep        搜索文本文件内容</code></pre>
+<h1 id="cat-命令"><a href="#cat-命令" class="headerlink" title="cat 命令"></a>cat 命令</h1><pre><code>* 用来查看文件内容、创建文件、文件合并、追加文件内容等功能
+* cat 会一次显示所有内容，适合查看内容较少的文本文件
+* 选项：
+    * -b：对非空输出行编号
+    * -n：对输出的所有行编号
+    * Linux中还有一个nl的命令和cat -b 的效果等价</code></pre>
+<h1 id="grep-命令"><a href="#grep-命令" class="headerlink" title="grep 命令"></a>grep 命令</h1><pre><code>    * Linux系统中grep命令是一种强大的文本搜索工具
+    * grep允许对文本文件进行模式查找，所谓模式查找又被称为正则表达式
+    选项          含义
+    -n            显示匹配行及行号
+    -v            显示不包含匹配文本的所有行（相当于求反）
+    -i            忽略大小写
+*常用的两种模式查找
+参数          含义
+^a            行首，搜寻以a开头的行
+ke$           行尾，搜寻以ke结束的行</code></pre>
 ]]></content>
       <categories>
-        <category>技术分享</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>春庭雪</title>
-    <url>/posts/e7a91616.html</url>
-    <content><![CDATA[<p>庭中梨花谢又一年</p>
-<p>立清宵 月华洒空阶</p>
-<p>梦里笙箫奏旧乐</p>
-<p>梦醒泪染胭脂面</p>
-<p>小重山 念一遍又一遍</p>
-<p>闻 更漏咽 频教前尘辞长夜</p>
-<p>久无眠 深坐对宫檐</p>
-<p>多情最是春庭雪</p>
-<p>年年落满离人苑</p>
-<p>薛涛笺 上言若如初见</p>
-<p>这一世</p>
-<p>太漫长却止步咫尺天涯间</p>
-<p>谁仍记 那梨花若雪时节</p>
-<p>我心匪石不可转</p>
-<p>我心匪席不可卷</p>
-<p>空凝眸 情字深浅无解</p>
-<p><a href="https://c.y.qq.com/base/fcgi-bin/u?__=s6AZVhy">春庭雪</a></p>
-]]></content>
-      <categories>
-        <category>生活随笔</category>
-      </categories>
-      <tags>
-        <tag>人间词话</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
 </search>
