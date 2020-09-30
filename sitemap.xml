@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.flysong.cn/shuoshuo/index.html</loc>
+    
+    <lastmod>2020-09-30</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.flysong.cn/posts/4c9d6007.html</loc>
     
     <lastmod>2020-09-27</lastmod>
@@ -144,6 +151,13 @@
   </url>
   
   <url>
+    <loc>http://blog.flysong.cn/tags/Vue/</loc>
+    <lastmod>2020-09-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.flysong.cn/tags/springboot/</loc>
     <lastmod>2020-09-30</lastmod>
     <changefreq>daily</changefreq>
@@ -152,13 +166,6 @@
   
   <url>
     <loc>http://blog.flysong.cn/tags/Ueditor/</loc>
-    <lastmod>2020-09-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.flysong.cn/tags/Vue/</loc>
     <lastmod>2020-09-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
