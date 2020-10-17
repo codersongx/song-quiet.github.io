@@ -6,7 +6,7 @@
   <link href="http://blog.flysong.cn/atom.xml" rel="self"/>
   
   <link href="http://blog.flysong.cn/"/>
-  <updated>2020-10-11T13:04:31.000Z</updated>
+  <updated>2020-10-17T10:35:39.000Z</updated>
   <id>http://blog.flysong.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20201017-学习笔记-算法技巧总结（持续更新）</title>
+    <link href="http://blog.flysong.cn/posts/4c703269.html"/>
+    <id>http://blog.flysong.cn/posts/4c703269.html</id>
+    <published>2020-10-17T10:35:39.000Z</published>
+    <updated>2020-10-17T10:35:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>Java中：左移（&lt;&lt;）,有符号右移（&gt;&gt;）,无符号右移（&gt;&gt;&gt;）<br>数a除以2 &lt;==&gt; 右移一位：a &gt;&gt;&gt;= 1<br>优势，右移的方式运算速度更快</p></blockquote><blockquote><p>模2取余：<br>方式一：a % 2 == 1 奇数，a % 2 == 0 偶数<br>方式二：a &amp; 1 == 1 奇数，a &amp; 1 == 0 偶数</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;Java中：左移（&amp;lt;&amp;lt;）,有符号右移（&amp;gt;&amp;gt;）,无符号右移（&amp;gt;&amp;gt;&amp;gt;）&lt;br&gt;数a除以2 &amp;lt;==&amp;gt; 右移一位：a &amp;gt;&amp;gt;&amp;gt;= 1&lt;br&gt;优势，右移的方式运算速度更快&lt;/p&gt;
+&lt;/bl</summary>
+      
+    
+    
+    
+    <category term="学习笔记" scheme="http://blog.flysong.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="算法" scheme="http://blog.flysong.cn/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>MySQL学习笔记</title>
