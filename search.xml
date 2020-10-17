@@ -945,6 +945,9 @@ network=&#123;
 <blockquote>
 <p>模2取余：<br>方式一：a % 2 == 1 奇数，a % 2 == 0 偶数<br>方式二：a &amp; 1 == 1 奇数，a &amp; 1 == 0 偶数</p>
 </blockquote>
+<blockquote>
+<p>两个数交换值不需要额外开辟临时空间的方法：<br>例：交换a与b的值<br>a = a+b;<br>b = a-b; //b=a<br>a = a-b; //a=b</p>
+</blockquote>
 ]]></content>
       <categories>
         <category>学习笔记</category>
