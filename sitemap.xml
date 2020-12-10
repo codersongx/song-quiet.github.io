@@ -4,7 +4,7 @@
   <url>
     <loc>http://blog.flysong.cn/posts/8a8eb575.html</loc>
     
-    <lastmod>2020-12-10</lastmod>
+    <lastmod>2020-12-06</lastmod>
     
   </url>
   
@@ -165,13 +165,6 @@
   </url>
   
   <url>
-    <loc>http://blog.flysong.cn/tags/Vue/</loc>
-    <lastmod>2020-12-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://blog.flysong.cn/tags/springboot/</loc>
     <lastmod>2020-12-10</lastmod>
     <changefreq>daily</changefreq>
@@ -186,7 +179,21 @@
   </url>
   
   <url>
+    <loc>http://blog.flysong.cn/tags/Vue/</loc>
+    <lastmod>2020-12-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.flysong.cn/tags/%E4%BA%BA%E9%97%B4%E8%AF%8D%E8%AF%9D/</loc>
+    <lastmod>2020-12-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.flysong.cn/tags/IDEA2020-2/</loc>
     <lastmod>2020-12-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -207,13 +214,6 @@
   </url>
   
   <url>
-    <loc>http://blog.flysong.cn/tags/IDEA2020-2/</loc>
-    <lastmod>2020-12-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://blog.flysong.cn/tags/Spring-Security/</loc>
     <lastmod>2020-12-10</lastmod>
     <changefreq>daily</changefreq>
@@ -221,14 +221,14 @@
   </url>
   
   <url>
-    <loc>http://blog.flysong.cn/tags/MySQL/</loc>
+    <loc>http://blog.flysong.cn/tags/SpringBoot/</loc>
     <lastmod>2020-12-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://blog.flysong.cn/tags/SpringBoot/</loc>
+    <loc>http://blog.flysong.cn/tags/MySQL/</loc>
     <lastmod>2020-12-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
