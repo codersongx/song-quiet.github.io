@@ -179,6 +179,13 @@
   </url>
   
   <url>
+    <loc>http://blog.flysong.cn/tags/IDEA2020-2/</loc>
+    <lastmod>2020-12-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.flysong.cn/tags/Vue/</loc>
     <lastmod>2020-12-10</lastmod>
     <changefreq>daily</changefreq>
@@ -187,13 +194,6 @@
   
   <url>
     <loc>http://blog.flysong.cn/tags/%E4%BA%BA%E9%97%B4%E8%AF%8D%E8%AF%9D/</loc>
-    <lastmod>2020-12-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.flysong.cn/tags/IDEA2020-2/</loc>
     <lastmod>2020-12-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
